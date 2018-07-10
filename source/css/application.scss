@@ -1,278 +1,257 @@
 body {
-    overflow: hidden;
-    margin: 0px;
-    width: 100vw;
-    height: 100vh;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ef31f9), to(rgba(125, 185, 232, 0)));
-    background: linear-gradient(180deg, #ef31f9, rgba(125, 185, 232, 0));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ef31f9", endColorstr="#007db9e8", GradientType=0)
+  overflow: hidden;
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+.btn {
+  position: fixed;
+  top: 0;
+  margin: 1rem;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: none;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+#makeItRain {
+  right: 0;
+}
+
+#makeItRainbow {
+  left: 0;
+}
+
+/* SMARTPHONES LANDSCAPE */
+
+@media only screen and (max-width: 414px) {
+  .italic {
+    font-size: 12px;
   }
-  
-  body,
-  html {
-    height: 100vh;
-    width: 100vw;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-      padding: 0;
-    margin: 0;
-    overflow: hidden;
-       font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
-  }
-  
-  .btn {
-    position: fixed;
-    top: 0;
-    margin: 1rem;
-    -webkit-appearance: none;
-    border: none;
-    outline: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: none;
-    color: #fff;
-    font-weight: 900;
-    text-transform: uppercase;
-       font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
-  }
-  
-  #makeItRain {
-    right: 0;
-  }
-  
-  #makeItRainbow {
-    left: 0;
-  }
-  
-  /* SMARTPHONES LANDSCAPE */
-  @media only screen and (max-width: 414px) {
-    .italic {
-      font-size: 12px;
-    }
-  }
-  
-  /*
+}
+
+/*
    * Animation module with all animation code
    */
-  
-  .anim-text-flow,
-  .anim-text-flow-hover:hover {
-    /*
+
+.anim-text-flow,
+.anim-text-flow-hover:hover {
+  /*
      * Animation variables
      */
-    $animationSteps: 250;
-    $animationDuration: 10;
-    $animationElement: span;
-    $animationElementsCount: 100;
-    $delayBetweenLetters: 0.1;
-    /*
+  $animationSteps: 250;
+  $animationDuration: 10;
+  $animationElement: span;
+  $animationElementsCount: 100;
+  $delayBetweenLetters: 0.1;
+  /*
      * Elements settings
      */
-    #{$animationElement} {
-      animation-name: anim-text-flow-keys;
-      animation-duration: #{$animationDuration}s;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      animation-fill-mode: forwards;
-    }
-    /*
+  #{$animationElement} {
+    animation-name: anim-text-flow-keys;
+    animation-duration: #{$animationDuration}s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+  }
+  /*
      * Keyframe loop
      */
-    @keyframes anim-text-flow-keys {
-      @for $i from 0 through $animationSteps {
-        #{percentage($i * (1 / $animationSteps))} {
-          color: hsla(random(365), 60, 60, 1);
-        }
+  @keyframes anim-text-flow-keys {
+    @for $i from 0 through $animationSteps {
+      #{percentage($i * (1 / $animationSteps))} {
+        color: hsla(random(365), 60, 60, 1);
       }
     }
-    /*
+  }
+  /*
      * Element animation delay loop
      */
-    $totalDelayTime: $animationElementsCount * $delayBetweenLetters;
-    @for $i from 1 through $animationElementsCount {
-      #{$animationElement}:nth-of-type(#{$i}) {
-        animation-delay: #{($i * $delayBetweenLetters) - $totalDelayTime}s;
-      }
+  $totalDelayTime: $animationElementsCount * $delayBetweenLetters;
+  @for $i from 1 through $animationElementsCount {
+    #{$animationElement}:nth-of-type(#{$i}) {
+      animation-delay: #{($i * $delayBetweenLetters) - $totalDelayTime}s;
     }
   }
-  
-  
-  
-  
-  #screen {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      cursor: pointer;
-  }
-  
-  
-  
-  
-  .italic{ 
-      font-size: 22px;
-    letter-spacing:2px;
-    font-family: Times, serif;
-    color: #FFFFFF;
-    font-weight: bold;
-    text-shadow: 4px 4px 3px rgba(50,50,50,0.45), 1px 1px 0px rgba(50,50,50,0.10); 
-    font-style: italic;
-    margin-bottom: 4px;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #FFF;
-    font-size: 11px;
-    text-shadow: 1px 1px 0px rgba(121, 121, 121, 1);
-  }
-  
-  a:visited {
-    text-decoration: none;
-    color: #FFF;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, .75);
-  }
-  
-  a:hover {
-    text-decoration: none;
-    color: #ffccff;
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, .75);
-  }
-  
-  
-  .toggl {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 240px;
-    padding: 20px 5px 12px 5px;
-    margin: 0;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    z-index: 1000;
-    text-align: center;
-    transform: translateZ(1000px);
-    -webkit-transform: translateZ(1000px);
-    -moz-transform: translateZ(1000px);
-    -ms-transform: translateZ(1000px);
-    -o-transform: translateZ(1000px);
-  }
-  
-  
-  .social {
-  
-  }
-  
-  .sosh {
-    padding: 8px 0px 0px 2px;
-    margin-right: -10px;
-    opacity: 1;
-  }
-  
-  .twitter-share-button {
-      vertical-align: bottom;
-  }
-    
-  div.context div.endlinks {
-   
-  }  
-  
-  .end {
-     padding: 5px 0px 0px 0px;
-     margin-top: 5px;
-     font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
-     
-    
-  }  
-  
-  .end a:link {
-    
-    padding: 0px 2px 1px 3px;
-    text-align: left;
-    font-size: 11px;
-    color: #000; 
-    text-shadow: 0px 1px 0px rgba(255, 255, 255, .75);
-    letter-spacing: 0px;
-    -moz-transition:0.2s ease-in-out;
-    -webkit-transition:0.2s ease-in-out; 
-    -o-transition:0.2s ease-in-out;
-    transition:0.2s ease-in-out; 
-  }
-  
-  .end a:visited { color: #000;}
-  .end a:hover { background-color: rgba(255,255,255, 0.75); }
-  
-  
-  div.context div.wobble { margin-bottom: 0px; }
-  
-  
-  
-  .links_list { 
-     margin:0px;
-     background-color: rgba(255, 255, 255, 0);
-     padding:0px; 
-     width:230px;
-  } 
-  
-  .links_head { 
-     padding-top:9px;
-     background-color: rgba(255, 255, 255, 0);   
-     padding-bottom:5px;   
-     cursor:pointer;
-     position:relative;
-     margin:1px;
-     text-align:center;
-     
-  } 
-  .links_list p {
-     font-size: 20px;
-     color: #fff;
-     letter-spacing: 0.035em;
-     font-style: italic;
-     text-shadow: 1px 1px 2px rgba(0,0,0, 0.55);
-     font-weight: bold;
-     font-family: Times, serif;
-         -moz-transition:0.2s ease-in-out;
-      -webkit-transition:0.2s ease-in-out; 
-      -o-transition:0.2s ease-in-out;
-      transition:0.2s ease-in-out;
-  }
-  
-  .links_list p:hover { 
-     color: rgba(255,255,255,0);
-     text-shadow: 1px 1px 3px rgba(0,0,0, 0.55);
-     -moz-transition:0.2s ease-in-out;
-      -webkit-transition:0.2s ease-in-out; 
-      -o-transition:0.2s ease-in-out;
-      transition:0.2s ease-in-out;
-  }
-  
-  .links_body { 
-     padding:5px;
-     background-color: rgba(255, 255, 255, 0);
-     font-weight: normal;
-     text-align:center;
-     line-height: 16px;
-     font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
-     font-size: .70em;
-     color: #000; 
-     text-shadow: 0px 1px 0px rgba(255, 255, 255, .55);
-     letter-spacing: 0px; 
-     display:none;
-  } 
-  
-  
-  .mb {
-      max-width: 10%;
-      height: auto;
-  }
-  
-  .hide {
-    display:none;
-  }
-  
-  
-  
-  
-  
+}
+
+#screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.italic {
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: Times, serif;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: 4px 4px 3px rgba(50, 50, 50, 0.45), 1px 1px 0px rgba(50, 50, 50, 0.10);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
+  font-size: 11px;
+  text-shadow: 1px 1px 0px rgba(121, 121, 121, 1);
+}
+
+a:visited {
+  text-decoration: none;
+  color: #FFF;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, .75);
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ffccff;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, .75);
+}
+
+.toggl {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 240px;
+  padding: 20px 5px 12px 5px;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  z-index: 1000;
+  text-align: center;
+  transform: translateZ(1000px);
+  -webkit-transform: translateZ(1000px);
+  -moz-transform: translateZ(1000px);
+  -ms-transform: translateZ(1000px);
+  -o-transform: translateZ(1000px);
+}
+
+.social {}
+
+.sosh {
+  padding: 8px 0px 0px 2px;
+  margin-right: -10px;
+  opacity: 1;
+}
+
+.twitter-share-button {
+  vertical-align: bottom;
+}
+
+.end {
+  padding: 5px 0px 0px 0px;
+  margin-top: 5px;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+.end a:link {
+  padding: 0px 2px 1px 3px;
+  text-align: left;
+  font-size: 11px;
+  color: #000;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, .75);
+  letter-spacing: 0px;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.end a:visited {
+  color: #000;
+}
+
+.end a:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+div.context div.wobble {
+  margin-bottom: 0px;
+}
+
+.links_list {
+  margin: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0px;
+  width: 230px;
+}
+
+.links_head {
+  padding-top: 9px;
+  background-color: rgba(255, 255, 255, 0);
+  padding-bottom: 5px;
+  cursor: pointer;
+  position: relative;
+  margin: 1px;
+  text-align: center;
+}
+
+.links_list p {
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 0.035em;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.55);
+  font-weight: bold;
+  font-family: Times, serif;
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.links_list p:hover {
+  color: rgba(255, 255, 255, 0);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.55);
+  -moz-transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.links_body {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  font-weight: normal;
+  text-align: center;
+  line-height: 16px;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  font-size: .70em;
+  color: #000;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, .55);
+  letter-spacing: 0px;
+  display: none;
+}
+
+.mb {
+  max-width: 10%;
+  height: auto;
+}
+
+.hide {
+  display: none;
+}
