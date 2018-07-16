@@ -1,6 +1,6 @@
 import '../css/application.scss'
-import $ from 'jquery'
-import './wobbler.js'
+import './modal.js'
+// import './wobbler.js'
 import './decomp.js'
 import './pathseg.js'
 import Matter from 'matter-js'

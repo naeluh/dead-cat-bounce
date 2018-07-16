@@ -19,14 +19,11 @@ const ExtractApplicationCSS = new ExtractTextPlugin(path.join('css', 'applicatio
 module.exports = {
     mode: 'production',
     entry: {
-        // `source/js/application.js` is the entry point for everything;
-        // the require('../css/application.scss') in this file is important.
         source: path.join(PATHS.source, 'js', 'application.js')
     },
-    // Hugo expects everything to be output to the `/static` directory of the theme
     output: {
         path: PATHS.build,
-        filename: 'js/[name][hash].js'
+        filename: 'js/[hash].js'
     },
     module: {
         rules: [{
@@ -137,6 +134,10 @@ module.exports = {
     },
     plugins: [
         // Extract CSS into a separate file
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html'

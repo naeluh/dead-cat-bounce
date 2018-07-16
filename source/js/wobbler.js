@@ -32,7 +32,7 @@ window.onload=() => { if (document.getElementById) {
     }
     wobble.appendChild(wobli);
   }
-  setInterval("wobbler()", speed);
+  setInterval(wobbler(), speed);
 }}
 
 function wobbler() {
