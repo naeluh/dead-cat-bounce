@@ -1,5 +1,5 @@
 import '../css/application.scss'
-import $ from 'jquery'
+import './modal.js'
 import './wobbler.js'
 import './decomp.js'
 import './pathseg.js'
@@ -177,13 +177,13 @@ mirain.on("click", event => {
   } else {
     arr = cats;
   }
-  const audioNum = getRandomInt(1,2);
+  const audioNum = getRandomInt(1, 2);
   const audio = document.getElementById("audio" + audioNum);
   audio.play();
   const c = generateCats(arr);
   World.add(engine.world, c);
   if (audioNum === 1) {
-      c.bodies.forEach((i, v) => {
+    c.bodies.forEach((i, v) => {
       Body.setAngularVelocity(i, 0.02 * getRandomArbitrary(-5, 5));
       Body.setVelocity(i, {
         x: 0,
@@ -197,7 +197,7 @@ mirain.on("click", event => {
         x: 0,
         y: 15
       });
-    });  
+    });
   }
   audio.onended = () => {
     World.remove(engine.world, c);
