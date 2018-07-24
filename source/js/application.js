@@ -1,5 +1,5 @@
 import '../css/application.scss'
-import './modal.js'
+import $ from 'jquery'
 import './wobbler.js'
 import './decomp.js'
 import './pathseg.js'
@@ -38,16 +38,19 @@ const _friction = 1;
 const _frictionAir = 0.0001;
 const _frictionStatic = 15;
 const _density = 0.01;
-const mirainbow = $("#makeItRainbow");
-const mirain = $("#makeItRain");
+// const mirainbow = $("#makeItRainbow");
+// const mirain = $("#makeItRain");
+const mirain = document.getElementById("makeItRain");
 const defaultCategory = 0x0001;
 const redCategory = 0x0002;
 const greenCategory = 0x0004;
 const blueCategory = 0x0008;
 const cArr = [];
 let rainbow = false;
-let width = $(window).width();
-let height = $(window).height();
+// let width = $(window).width();
+// let height = $(window).height();
+let width = window.innerWidth;
+let height = window.innerHeight;
 let sx = width >= 414 ? 1 : 0.5;
 let sy = width >= 414 ? 1 : 0.5;
 let count1 = 0;
@@ -55,8 +58,8 @@ let count2 = 0;
 const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min;
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const generateCats = function generateCats(arr) {
-  const width = $(window).width();
-  const height = $(window).height();
+  let width = window.innerWidth;
+  let height = window.innerHeight;
   const sx = width >= 414 ? 1 : 0.5;
   const sy = width >= 414 ? 1 : 0.5;
   let index = 0;
@@ -84,20 +87,21 @@ const generateCats = function generateCats(arr) {
   return stack;
 };
 const init = function init() {
-  $("canvas").remove();
+  // $("canvas").remove();
+  document.getElementsByTagName("canvas").remove
   const colorOne = `#${Math.random().toString(16).slice(2, 8).toUpperCase()}`;
   const colorTwo = "#fff";
   const orientation = "180deg";
-  width = $(window).width();
-  height = $(window).height();
+  let width = window.innerWidth;
+  let height = window.innerHeight;
   sx = width >= 414 ? 1 : 0.5
   sy = width >= 414 ? 1 : 0.5
   World.clear(engine.world);
   Engine.clear(engine);
   engine = Engine.create({
-    //positionIterations: 4,
-    //velocityIterations: 4,
-    //constraintIterations: 4
+    // positionIterations: 4,
+    // velocityIterations: 4,
+    // constraintIterations: 4
   });
   engine.timing.timeScale = 1
   const render = Render.create({
@@ -166,9 +170,9 @@ const init = function init() {
   Engine.run(engine);
   Render.run(render);
 };
-mirain.on("click", event => {
+mirain.addEventListener("click", event => {
   rainbow = true;
-  mirain.prop("disabled", true);
+  mirain.getAttribute("disabled", true);
   count1++;
   let arr = [];
   if (count1 >= 4) {
@@ -201,7 +205,7 @@ mirain.on("click", event => {
   }
   audio.onended = () => {
     World.remove(engine.world, c);
-    mirain.prop("disabled", false);
+    mirain.getAttribute("disabled", false);
     rainbow = false;
   };
 });
@@ -210,8 +214,15 @@ $('.txt').html((i, html) => {
   return `<span>${chars.join('</span><span>')}</span>`;
 });
 init();
+window.addEventListener('resize', (e) => {
+  if (!rainbow) {
+    init();
+  }
+});
+/*
 $(window).resize(() => {
   if (!rainbow) {
     init();
   }
 });
+*/

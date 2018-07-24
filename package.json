@@ -30,6 +30,7 @@
     "lodash": "^4.17.10",
     "matter-js": "^0.14.2",
     "node-sass": "^4.9.2",
+    "offline-plugin": "^5.0.5",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
     "sass-loader": "^7.0.3",
