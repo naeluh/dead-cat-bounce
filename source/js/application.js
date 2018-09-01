@@ -151,6 +151,13 @@ const init = function init() {
     });
     World.add(engine.world, cArr[v]);
   });
+  const box = Bodies.rectangle(162, height - 135, 300, 250, {
+    isStatic: true,
+    render: {
+      fillStyle: "transparent"
+    }
+  })
+  World.add(engine.world, box);
   const mouse = Mouse.create(render.canvas);
   const mouseConstraint = MouseConstraint.create(engine, {
     mouse,
