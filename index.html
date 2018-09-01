@@ -79,22 +79,35 @@
         </div>
     </div>
     <!-- END OVERLAY -->
-    <div id="wobble" class="btn italic">Cat Bounce!</div>
 
-    <button id="questions" class="outline">?</button>
+    <main class="flex">
 
-    <button id="makeItRain" class="btn italic">
-        <span class="txt anim-text-flow-hover">Make It Rain</span>
-    </button>
+            <aside id="catit">
+                <div class="box"></div>
+            </aside>
 
-    <audio id="audio2">
-        <source src="<%=require('./source/audio/sound_2.ogg')%>" type="audio/ogg">
-        <source src="<%=require('./source/audio/sound_2.mp3')%>" type="audio/mpeg"> Your browser does not support the audio element.
-    </audio>
-    <audio id="audio1">
-        <source src="<%=require('./source/audio/sound_1.ogg')%>" type="audio/ogg">
-        <source src="<%=require('./source/audio/sound_1.mp3')%>" type="audio/mpeg"> Your browser does not support the audio element.
-    </audio>
+        <section id="cat-bounce">
+            <button id="questions" class="outline">?</button>
+
+            <button id="makeItRain" class="btn italic">
+                <span class="txt anim-text-flow-hover">Make It Rain</span>
+            </button>
+
+        </section>
+
+        <audio id="audio2">
+            <source src="<%=require('./source/audio/sound_2.ogg')%>" type="audio/ogg">
+            <source src="<%=require('./source/audio/sound_2.mp3')%>" type="audio/mpeg"> Your browser does not support the
+            audio element.
+        </audio>
+        <audio id="audio1">
+            <source src="<%=require('./source/audio/sound_1.ogg')%>" type="audio/ogg">
+            <source src="<%=require('./source/audio/sound_1.mp3')%>" type="audio/mpeg"> Your browser does not support the
+            audio element.
+        </audio>
+
+    </main>
+
 
 </body>
 

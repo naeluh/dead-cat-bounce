@@ -101,7 +101,7 @@ const init = function init() {
   });
   engine.timing.timeScale = 1
   const render = Render.create({
-    element: document.body,
+    element: document.getElementById('cat-bounce'),
     engine,
     setPixelRatio: "auto",
     options: {
