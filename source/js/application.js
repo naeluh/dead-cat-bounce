@@ -45,11 +45,12 @@ const redCategory = 0x0002;
 const greenCategory = 0x0004;
 const blueCategory = 0x0008;
 const cArr = [];
+const resizeWidth = 415
 let rainbow = false;
 let width = $(window).width();
 let height = $(window).height();
-let sx = width >= 414 ? 1 : 0.5;
-let sy = width >= 414 ? 1 : 0.5;
+let sx = width >= resizeWidth ? 1 : 0.5;
+let sy = width >= resizeWidth ? 1 : 0.5;
 let count1 = 0;
 let count2 = 0;
 const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min;
@@ -57,8 +58,8 @@ const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) +
 const generateCats = function generateCats(arr) {
   const width = $(window).width();
   const height = $(window).height();
-  const sx = width >= 414 ? 1 : 0.5;
-  const sy = width >= 414 ? 1 : 0.5;
+  const sx = width >= resizeWidth ? 1 : 0.5;
+  const sy = width >= resizeWidth ? 1 : 0.5;
   let index = 0;
   const stack = Composites.stack(0, -height * 2.55, 10, 8, getRandomArbitrary(0, 50), getRandomArbitrary(0, 50), (x, y) => {
     index = index >= 6 ? 0 : index++;
@@ -90,8 +91,8 @@ const init = function init() {
   const orientation = "180deg";
   width = $(window).width();
   height = $(window).height();
-  sx = width >= 414 ? 1 : 0.5
-  sy = width >= 414 ? 1 : 0.5
+  sx = width >= resizeWidth ? 1 : 0.5
+  sy = width >= resizeWidth ? 1 : 0.5
   World.clear(engine.world);
   Engine.clear(engine);
   engine = Engine.create({
